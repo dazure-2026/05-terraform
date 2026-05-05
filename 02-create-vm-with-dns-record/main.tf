@@ -1,3 +1,12 @@
+# 1. Create the Public IP Address
+resource "azurerm_public_ip" "main" {
+  name                = "test-pip"
+  location            = "Denmark East"
+  resource_group_name = "dnmrk-est-rg"
+  allocation_method   = "Static" # Use Static or Dynamic
+  sku                 = "Standard"
+}
+
 resource "azurerm_network_interface" "main" {
   name                = "test-nic"
   location            = "Denmark East"
@@ -7,6 +16,7 @@ resource "azurerm_network_interface" "main" {
     name                          = "testconfiguration1"
     subnet_id                     = "/subscriptions/e95ed2ec-55a5-49ac-a41d-51cb0ac50b67/resourceGroups/dnmrk-est-rg/providers/Microsoft.Network/virtualNetworks/custom-vm-vnet/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.main.id
   }
 }
 
