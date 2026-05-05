@@ -80,7 +80,7 @@ resource "azurerm_linux_virtual_machine" "test-vm" {
   # This enables Trusted Launch
   secure_boot_enabled = true
   vtpm_enabled        = true
-
+  disable_password_authentication = false
   network_interface_ids = [azurerm_network_interface.main.id]
   admin_password = "Azureuser@123" # Use a secure password or consider using SSH keys for better security
 }
