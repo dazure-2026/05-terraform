@@ -1,7 +1,7 @@
 resource "azurerm_network_interface" "main" {
   name                = "test-nic"
   location            = "Denmark East"
-  resource_group_name = "denmark-east-rg"
+  resource_group_name = "dnmrk-est-rg"
 
   ip_configuration {
     name                          = "testconfiguration1"
@@ -13,7 +13,7 @@ resource "azurerm_network_interface" "main" {
 resource "azurerm_virtual_machine" "main" {
   name                  = "test-vm"
   location            = "Denmark East"
-  resource_group_name = "denmark-east-rg"
+  resource_group_name = "dnmrk-est-rg"
   network_interface_ids = [azurerm_network_interface.main.id]
   vm_size               = "Standard_B1s"
 
