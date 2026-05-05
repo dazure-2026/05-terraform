@@ -34,10 +34,13 @@ resource "azurerm_virtual_machine" "main" {
   delete_data_disks_on_termination = true
 
   storage_image_reference {
-    publisher = "RedHat"
-    offer     = "RHEL"
-    sku       = "101-gen2"
-    version   = "latest"
+    #id = "/subscriptions/e95ed2ec-55a5-49ac-a41d-51cb0ac50b67/resourceGroups/dnmrk-est-rg/providers/Microsoft.Compute/galleries/rhel10"
+    id = "/subscriptions/e95ed2ec-55a5-49ac-a41d-51cb0ac50b67/resourceGroups/dnmrk-est-rg/providers/Microsoft.Compute/galleries/rhel10/images/1.0.0"
+
+    # publisher = "RedHat"
+    # offer     = "RHEL"
+    # sku       = "101-gen2"
+    # version   = "latest"
   }
   storage_os_disk {
     name              = "myosdisk1"
