@@ -65,7 +65,7 @@ resource "azurerm_network_interface" "main" {
 resource "azurerm_linux_virtual_machine" "test-vm" {
   name                = "test-vm"
   resource_group_name = "dnmrk-est-rg"
-  location            = "East US" # Replace with your location
+  location            = "Denmark East" # Replace with your location
   size                = "Standard_B2s" # Ensure size supports Trusted Launch
   admin_username      = "azureuser"
   
