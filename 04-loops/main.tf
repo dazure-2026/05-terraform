@@ -11,7 +11,7 @@ variable "component" {
 }
 
 resource "azurerm_network_interface" "main" {
-    count = 3
+    count = var.component != null ? length(var.component) : 0
     name                = "${var.component[count.index]}-${count.index}"
     location            = "Denmark East"
     resource_group_name = "dnmrk-est-rg"
