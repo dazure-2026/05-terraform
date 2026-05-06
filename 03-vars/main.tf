@@ -1,3 +1,14 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "4.71.0"
+    }
+  }
+}
+provider "azurerm" {
+  features {}
+}
 variable "location" {
     type        = string
     description = "The Azure region to deploy resources in"

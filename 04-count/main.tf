@@ -20,3 +20,15 @@ resource "azurerm_network_interface" "main" {
         # public_ip_address_id = azurerm_public_ip.main.id
     }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "4.71.0"
+    }
+  }
+}
+provider "azurerm" {
+  features {}
+}
