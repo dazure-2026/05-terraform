@@ -7,7 +7,7 @@
 
 variable "component" {
   type = list(string)
-  default = [ "frontend", "backend", "catalogue", "database" ]
+  default = [ "frontend", "backend", "database" ]
 }
 
 resource "azurerm_network_interface" "main" {
