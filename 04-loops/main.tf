@@ -1,10 +1,13 @@
-resource "null_resource" "main" {
-  count = 10
-}
+# This file contains the main Terraform configuration for creating multiple resources using loops.
+# It demonstrates how to use the `count` meta-argument to create multiple instances of a resource based on a list of components.
+# observe that if one more component is added to the list, it actually removes one resource 
+# resource "null_resource" "main" {
+#   count = 10
+# }
 
 variable "component" {
   type = list(string)
-  default = [ "frontend", "backend", "database" ]
+  default = [ "frontend", "backend", "catalogue", "database" ]
 }
 
 resource "azurerm_network_interface" "main" {
