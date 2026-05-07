@@ -33,6 +33,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   secure_boot_enabled  = var.secure_boot_enabled
   vtpm_enabled = true
   admin_username       = "azureuser"
+  admin_password       = "P@ssw0rd123!"
   tags                 = var.tags
   disable_password_authentication = false
   source_image_id = var.source_image_id
