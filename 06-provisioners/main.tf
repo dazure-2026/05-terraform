@@ -14,7 +14,7 @@ resource "azurerm_network_interface" "main" {
     name = "frontend_ip_config"
     subnet_id = var.subnet_id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = azurerm_public_ip.main.ip_address
+    public_ip_address_id = azurerm_public_ip.main.id
   }
 }
 
