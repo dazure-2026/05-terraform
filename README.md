@@ -123,3 +123,17 @@ Infrastructure Removed
 - Use modules for reusable components
 - Test changes in development environments first 
 
+## Meta-Arguments: Count vs. For-Each
+
+When creating multiple instances of a resource based on a list, it is important to choose the right meta-argument.
+
+- **Count**: Terraform uses the **index** of the list (0, 1, 2...) to identify each resource. If you change the order of items in your list, Terraform will see a mismatch between the index and the value, causing it to destroy existing resources and create new ones.
+- **For-Each**: This is the preferred method for lists of values. It uses the **actual values** as the identifiers. Even if you change the order of the items in your configuration, Terraform recognizes that the keys are the same and will not trigger unnecessary recreations.
+
+### Best Practices
+
+- Always run `terraform plan` before `apply`
+- Use version control for `.tf` files
+- Store state files securely (remote backend recommended)
+- Use modules for reusable components
+- Test changes in development environments first

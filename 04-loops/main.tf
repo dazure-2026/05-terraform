@@ -1,6 +1,9 @@
 # This file contains the main Terraform configuration for creating multiple resources using loops.
-# It demonstrates how to use the `count` meta-argument to create multiple instances of a resource based on a list of components.
-# observe that if one more component is added to the list, it actually removes one resource 
+# It demonstrates how to use the count meta-argument to create multiple instances of a resource based on a list.
+# Note that if the order of items in the list changes, Terraform will destroy existing resources and recreate them. 
+# This happens because Terraform identifies each instance by its index (e.g., [0], [1]).To avoid this, use for_each. 
+# It uses the actual values (keys) as identifiers. If you change the order of the list, 
+# Terraform will see that the keys haven't changed and will not trigger any unnecessary recreations
 # resource "null_resource" "main" {
 #   count = 10
 # }
