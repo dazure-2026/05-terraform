@@ -46,7 +46,7 @@ resource "azurerm_linux_virtual_machine" "main" {
       password = "P@ssw0rd123!"
     }
     inline = [
-      "sudo dnf update -y",
+      # "sudo dnf update -y",
       "sudo dnf install nginx -y",
       "sudo systemctl start nginx",
       "sudo systemctl enable nginx"
