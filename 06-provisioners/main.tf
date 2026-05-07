@@ -40,7 +40,7 @@ resource "azurerm_linux_virtual_machine" "main" {
 
   provisioner "remote-exec" {
     connection {
-      host = self.public_ip_address
+      host = self.private_ip_address
       type = "ssh"
       user = "azureuser"
       password = "P@ssw0rd123!"
