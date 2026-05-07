@@ -18,7 +18,7 @@ resource "azurerm_network_interface" "main" {
   }
 }
 
-resource "azurerm_linux_virtual_machine" "test-vm" {
+resource "azurerm_linux_virtual_machine" "main" {
   name                = "frontend-vm"
   resource_group_name = var.resource_group_name
   location            = var.location
@@ -33,7 +33,6 @@ resource "azurerm_linux_virtual_machine" "test-vm" {
   secure_boot_enabled  = var.secure_boot_enabled
   vtpm_enabled = true
   admin_username       = "azureuser"
-  admin_password       = "P@ssw0rd123!"
   tags                 = var.tags
   disable_password_authentication = false
   source_image_id = var.source_image_id
@@ -52,4 +51,12 @@ resource "azurerm_linux_virtual_machine" "test-vm" {
       "sudo systemctl enable nginx"
     ]   
   }
+}
+
+resource "azurerm_dns_a_record" "main" {
+  name                = "frontend-dev"
+  zone_name           = var.zone_name
+  resource_group_name = var.resource_group_name
+  ttl                 = 30
+  records             = [azurerm_linux_virtual_machine.main.public_ip_address]
 }
